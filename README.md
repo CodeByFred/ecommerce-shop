@@ -58,3 +58,11 @@ At a minimum your e-shop website should have Three pages:
 - [React-router-dom](https://reactrouter.com/docs/en/v6/getting-started/overview)
 - [Dummy JSON](https://dummyjson.com/)
 - [Fake Store](https://fakestoreapi.com/)
+
+## Figma
+
+https://www.figma.com/design/0kmftbGRJ5aruYhEjDxu8C/ecommerce-shop?t=3PAUUFOtFj02L9hX-0
+
+## Trello
+
+https://trello.com/b/GdE3COih/ecommerce-shop

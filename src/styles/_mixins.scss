@@ -1,0 +1,26 @@
+@use "./colors";
+
+@mixin flex($direction: row, $justify: flex-start, $align: normal) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font-heading($font-size) {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: $font-size;
+  color: colors.$text-main;
+}
+
+@mixin font-body($font-size, $font-weight: 300) {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  // weight 300-700
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  color: colors.$text-main;
+}
