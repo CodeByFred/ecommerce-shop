@@ -1,0 +1,6 @@
+@use "../../styles/mixins";
+
+.subheading {
+  @include mixins.font-heading(1.35rem);
+  margin: 0;
+}

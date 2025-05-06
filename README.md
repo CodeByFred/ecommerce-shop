@@ -66,3 +66,7 @@ https://www.figma.com/design/0kmftbGRJ5aruYhEjDxu8C/ecommerce-shop?t=3PAUUFOtFj0
 ## Trello
 
 https://trello.com/b/GdE3COih/ecommerce-shop
+
+## Color Palette
+
+https://coolors.co/f9db5e-e05478-faf3e3-2c2c2c-7fdbda
