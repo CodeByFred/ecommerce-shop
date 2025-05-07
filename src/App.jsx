@@ -1,11 +1,11 @@
 import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router";
-import Carousel from "./components/Carousel/Carousel";
 import NavBar from "./components/NavBar/NavBar";
 import Overlay from "./components/Overlay/Overlay";
-import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
-import Subtitle from "./components/Subtitle/Subtitle";
-import Title from "./components/Title/Title";
+import Home from "./pages/Home/Home";
+import Product from "./pages/Product/Product";
+import Cart from "./pages/Cart/Cart";
+import Account from "./pages/Account/Account";
 
 function App() {
   return (
@@ -13,10 +13,12 @@ function App() {
       <main>
         <NavBar />
         <Overlay>
-          <Title>Not What You'd Expect</Title>
-          <Subtitle>Because Normal Is Boring... (And Trademarked)</Subtitle>
-          <Carousel />
-          <ProductsContainer></ProductsContainer>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/account" element={<Account />} />
+          </Routes>
         </Overlay>
       </main>
     </BrowserRouter>

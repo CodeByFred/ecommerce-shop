@@ -8,11 +8,17 @@ const NavBar = () => {
   return (
     <nav className={classes.nav}>
       <div className={classes.home}>
-        <NavLink className={linkStyles}>Home</NavLink>
+        <NavLink className={linkStyles} to="/">
+          Home
+        </NavLink>
       </div>
       <div className={classes.links}>
-        <NavLink className={linkStyles}>Cart</NavLink>
-        <NavLink className={linkStyles}>Account</NavLink>
+        <NavLink className={linkStyles} to="/cart">
+          Cart
+        </NavLink>
+        <NavLink className={linkStyles} to="/account">
+          Account
+        </NavLink>
       </div>
     </nav>
   );
