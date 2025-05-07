@@ -1,0 +1,39 @@
+@use "../../styles/colors";
+@use "../../styles/media-queries" as mq;
+@use "../../styles/mixins";
+
+.nav {
+  @include mixins.flex($justify: space-between);
+  width: 100%;
+  padding: 0.4rem 0;
+}
+
+.link {
+  @include mixins.font-body(1rem, 700);
+  text-decoration: none;
+  margin: 0.5rem;
+
+  @include mq.tablet() {
+    margin: 1.25rem;
+  }
+
+  @include mq.pc() {
+    margin: 2rem;
+  }
+}
+
+.home {
+  margin-left: 1rem;
+
+  @include mq.pc() {
+    margin-left: 0;
+  }
+}
+
+.links {
+  margin-right: 1rem;
+
+  @include mq.pc() {
+    margin-right: 0;
+  }
+}
