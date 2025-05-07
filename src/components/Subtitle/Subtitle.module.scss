@@ -1,6 +1,15 @@
+@use "../../styles/media-queries" as mq;
 @use "../../styles/mixins";
 
 .subheading {
-  @include mixins.font-heading(1.2rem);
+  @include mixins.font-heading(0.85em);
   margin: 0;
+
+  @include mq.tablet {
+    @include mixins.font-heading(1.2rem);
+  }
+
+  @include mq.pc {
+    @include mixins.font-heading(1.2rem);
+  }
 }

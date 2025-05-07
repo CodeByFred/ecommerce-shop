@@ -1,10 +1,22 @@
 @use "../../styles/colors";
+@use "../../styles/media-queries" as mq;
 @use "../../styles/mixins";
 
 .heading {
-  @include mixins.font-heading(3.5rem);
+  @include mixins.font-heading(1.75rem);
   text-shadow: 3px 3px colors.$contrast-blue;
+  word-spacing: 0.5rem;
   margin: 1rem;
-  word-spacing: 0.75rem;
-  letter-spacing: 0.2rem;
+
+  @include mq.tablet() {
+    @include mixins.font-heading(3.5rem);
+    word-spacing: 0.75rem;
+    letter-spacing: 0.2rem;
+  }
+
+  @include mq.pc() {
+    @include mixins.font-heading(3.5rem);
+    word-spacing: 0.75rem;
+    letter-spacing: 0.2rem;
+  }
 }
