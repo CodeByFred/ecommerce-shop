@@ -1,0 +1,10 @@
+@use "../../styles/colors";
+@use "../../styles/mixins";
+
+.carousel {
+  @include mixins.flex(column, center, center);
+  margin: 2rem;
+  width: 600px;
+  height: 300px;
+  background-color: gray;
+}

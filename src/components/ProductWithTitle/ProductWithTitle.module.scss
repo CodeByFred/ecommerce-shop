@@ -1,0 +1,18 @@
+@use "../../styles/colors";
+@use "../../styles/mixins";
+
+p {
+  @include mixins.font-body(1rem, 700);
+}
+
+.content {
+  // border: 1px solid red;
+  @include mixins.flex(column, center, center);
+  margin: 1em 3em;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+}

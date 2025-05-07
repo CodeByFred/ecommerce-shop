@@ -1,0 +1,26 @@
+@use "../../styles/colors";
+@use "../../styles/mixins";
+
+section {
+  // border: 1px solid purple;
+  @include mixins.flex(column, center, center);
+  margin: 1rem auto;
+
+  h2 {
+    @include mixins.font-heading(2rem);
+    text-align: center;
+    margin: 0;
+  }
+
+  menu {
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+
+  div {
+    @include mixins.flex(row, center, center);
+  }
+}
