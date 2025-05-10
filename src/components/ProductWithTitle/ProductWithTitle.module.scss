@@ -21,9 +21,12 @@
   text-align: center;
   height: 45px;
 
-  // @include mq.pc() {
   p {
     margin: 1rem 0 0 0;
   }
-  // }
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
 }

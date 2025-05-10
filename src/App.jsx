@@ -6,19 +6,16 @@ import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Cart from "./pages/Cart/Cart";
 import Account from "./pages/Account/Account";
-// import { getAllProducts } from "./api/getProducts";
 
 function App() {
-  // getAllProducts();
-
   return (
     <BrowserRouter>
       <main>
         <NavBar />
         <Overlay>
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Product />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/account" element={<Account />} />
           </Routes>

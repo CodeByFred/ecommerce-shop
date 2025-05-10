@@ -23,6 +23,13 @@
   .card {
     @include mixins.flex(column);
 
+    h2 {
+      @include mixins.font-heading(2rem);
+      text-shadow: 1.25px 1.25px colors.$contrast-blue;
+      word-spacing: 0.5rem;
+      margin: 1rem 0;
+    }
+
     .variants {
       padding: 0.5rem 0.5rem 0.5rem 0;
     }
@@ -45,7 +52,8 @@
 
     .row {
       width: 100%;
-      @include mixins.flex($justify: space-between, $align: center);
+      @include mixins.flex($align: center);
+      gap: 1rem;
     }
 
     @include mq.tablet {
