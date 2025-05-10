@@ -1,56 +1,52 @@
 import { useState } from "react";
-import TabButton from "../TabButton/TabButton";
+import { getProductsByCategory } from "../../api/getProducts.js";
+import useQuery from "../../hooks/useQuery";
+import Button from "../Button/Button";
 import ProductWithTitle from "../ProductWithTitle/ProductWithTitle";
 import "./ProductsContainer.module.scss";
 
 const ProductsContainer = () => {
-  const [selectedTopic, setSelectedTopic] = useState("books");
+  const [selectedCategory, setSelectedCategory] = useState("Books");
 
   function handleSelect(selectedButton) {
-    setSelectedTopic(selectedButton);
+    setSelectedCategory(selectedButton);
   }
+
+  const {
+    data: products,
+    isLoading,
+    isFail,
+  } = useQuery({
+    fetchFn: getProductsByCategory,
+    args: [selectedCategory],
+    dependencies: [selectedCategory],
+  });
+
+  const tabs = ["Books", "Toys", "Snacks", "Clothing", "Gift Cards"];
 
   return (
     <section>
       <h2>Shop By Category</h2>
       <menu>
-        <TabButton
-          isSelected={selectedTopic === "books"}
-          onSelect={() => handleSelect("books")}
-        >
-          Books
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === "toys"}
-          onSelect={() => handleSelect("toys")}
-        >
-          Toys
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === "snacks"}
-          onSelect={() => handleSelect("snacks")}
-        >
-          Snacks
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === "clothing"}
-          onSelect={() => handleSelect("clothing")}
-        >
-          Clothing
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === "gift"}
-          onSelect={() => handleSelect("gift")}
-        >
-          Gift Cards
-        </TabButton>
+        {tabs.map((tab) => (
+          <li>
+            <Button
+              key={tab}
+              isSelected={selectedCategory === tab}
+              onSelect={() => handleSelect(tab)}
+            >
+              {tab}
+            </Button>
+          </li>
+        ))}
       </menu>
       <div>
-        <ProductWithTitle selectedTopic={selectedTopic} />
-        <ProductWithTitle selectedTopic={selectedTopic} />
-        <ProductWithTitle selectedTopic={selectedTopic} />
-        <ProductWithTitle selectedTopic={selectedTopic} />
-        <ProductWithTitle selectedTopic={selectedTopic} />
+        {isLoading && <p>Loading...</p>}
+        {isFail && <p>Something went wrong.</p>}
+        {!isLoading && products?.length === 0 && <p>No products found.</p>}
+        {products?.map((product) => (
+          <ProductWithTitle key={product.id} product={product} />
+        ))}
       </div>
     </section>
   );

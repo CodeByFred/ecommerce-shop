@@ -1,10 +1,14 @@
 import classes from "./ProductWithTitle.module.scss";
 
-const ProductWithTitle = ({ selectedTopic }) => {
+const ProductWithTitle = ({ product }) => {
   return (
     <div className={classes.content}>
-      <div className={classes.image}>Image</div>
-      <p>{selectedTopic}</p>
+      <div className={classes.image_container}>
+        <img className={classes.image} src={product.img_url} alt={product.name} />
+      </div>
+      <div className={classes.title}>
+        <p>{product.name}</p>
+      </div>
     </div>
   );
 };

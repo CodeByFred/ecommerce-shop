@@ -1,15 +1,20 @@
+@use "../../styles/colors";
 @use "../../styles/media-queries" as mq;
 @use "../../styles/mixins";
 
 .subheading {
   @include mixins.font-heading(0.85em);
+  color: colors.$contrast-blue;
+  text-shadow: 1px 1px colors.$neutral-beige;
   margin: 0;
 
   @include mq.tablet {
     @include mixins.font-heading(1.2rem);
+    color: colors.$contrast-blue;
   }
 
   @include mq.pc {
     @include mixins.font-heading(1.2rem);
+    color: colors.$contrast-blue;
   }
 }

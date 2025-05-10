@@ -4,7 +4,7 @@
 
 .heading {
   @include mixins.font-heading(1.75rem);
-  text-shadow: 3px 3px colors.$contrast-blue;
+  text-shadow: 2px 2px colors.$contrast-blue;
   word-spacing: 0.5rem;
   margin: 1rem;
 

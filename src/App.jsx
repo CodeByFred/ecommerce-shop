@@ -6,8 +6,11 @@ import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Cart from "./pages/Cart/Cart";
 import Account from "./pages/Account/Account";
+// import { getAllProducts } from "./api/getProducts";
 
 function App() {
+  // getAllProducts();
+
   return (
     <BrowserRouter>
       <main>
