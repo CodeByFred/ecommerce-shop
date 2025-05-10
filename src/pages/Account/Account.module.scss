@@ -1,0 +1,51 @@
+@use "../../styles/colors";
+@use "../../styles/media-queries" as mq;
+@use "../../styles/mixins";
+
+.container {
+  @include mixins.flex(column, center, center);
+  height: 95vh;
+  width: 90%;
+}
+
+.form {
+  @include mixins.flex(column, center, center);
+  gap: 1rem;
+  width: 95%;
+  max-width: 320px;
+
+  .icon {
+    margin-bottom: 2rem;
+    height: 150px;
+    fill: colors.$primary-yellow;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid colors.$accent-shadow;
+    border-radius: 10px;
+    @include mixins.font-body(1rem, 500);
+    outline-color: colors.$contrast-blue;
+    &::placeholder {
+      color: colors.$text-main;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    @include mixins.font-body(1rem, 700);
+    color: white;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+
+  small {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: colors.$contrast-blue;
+    align-self: flex-end;
+    cursor: pointer;
+  }
+}
