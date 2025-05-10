@@ -15,7 +15,7 @@ const ProductCard = () => {
   return (
     <div className={classes.container}>
       <div className={classes.img_container}>
-        <img src={image1} alt="image1" />
+        <img className={classes.img} src={image1} alt="image1" />
       </div>
 
       <div className={classes.card}>

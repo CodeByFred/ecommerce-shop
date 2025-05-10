@@ -3,46 +3,102 @@
 @use "../../styles/mixins";
 
 .container {
-  width: 100%;
+  @include mixins.flex(column, flex-start, center);
+  width: 90%;
   height: 100%;
-  @include mixins.flex(row, center, center);
 
   .img_container {
+    @include mixins.flex(column, center, center);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .img {
+    width: 100%;
     height: 500px;
-    width: 500px;
-    img {
-      height: 500px;
-      width: 500px;
-    }
+    margin: 1.25em;
   }
 
   .card {
-    box-shadow: 0 8px 12px colors.$shadow-dark;
     @include mixins.flex(column);
-    height: 750px;
-    max-height: 70%;
-    width: 600px;
-    max-width: 33%;
-    padding: 1rem 8rem;
+
     .variants {
       padding: 0.5rem 0.5rem 0.5rem 0;
     }
+
     .btn {
       background-color: colors.$accent-pink;
     }
+
     div {
-      margin: 0.5rem 0;
+      margin: 0.1em 0;
     }
+
     p {
       @include mixins.font-body(1rem, 600);
     }
+
     span {
       font-size: 1.25rem;
     }
-  }
-}
 
-.row {
-  width: 100%;
-  @include mixins.flex($justify: space-between, $align: center);
+    .row {
+      width: 100%;
+      @include mixins.flex($justify: space-between, $align: center);
+    }
+
+    @include mq.tablet {
+      height: 500px;
+      width: 75%;
+      padding: 1rem;
+    }
+
+    @include mq.pc {
+      box-shadow: 0 8px 12px colors.$shadow-dark;
+      min-height: 550px;
+      height: 700px;
+      max-height: 70%;
+      width: 600px;
+      max-width: 33%;
+      padding: 2rem 6rem;
+
+      div {
+        margin: 0.5rem 0;
+      }
+    }
+
+    @include mq.uhd {
+      max-height: 700px;
+    }
+  }
+
+  @include mq.tablet {
+    @include mixins.flex(column, flex-start, center);
+
+    .img_container {
+      margin: 1rem;
+    }
+
+    .img {
+      height: 750px;
+      max-width: 80%;
+    }
+  }
+
+  @include mq.pc {
+    @include mixins.flex(row, center, center);
+    width: 100%;
+    height: 100%;
+
+    .img_container {
+      height: 500px;
+      width: 500px;
+
+      .img {
+        height: 500px;
+        width: 500px;
+      }
+    }
+  }
 }
