@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore"; //, query, where
 import { db } from "../firebase/firebase";
 
 export const getAllProducts = async () => {
@@ -10,8 +10,8 @@ export const getAllProducts = async () => {
 };
 
 export const getProductsByCategory = async (categoryLabel) => {
-  const q = query(collection(db, "products"), where("category", "==", categoryLabel));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  // console.log(categoryLabel, "Getting Products");
+  // const q = query(collection(db, "products"), where("category", "==", categoryLabel));
+  // const snapshot = await getDocs(q);
+  // return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  console.log(categoryLabel, "Getting Products");
 };

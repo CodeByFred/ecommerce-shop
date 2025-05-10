@@ -9,7 +9,7 @@ const Home = () => {
       <Title>Not What You'd Expect</Title>
       <Subtitle>Because Normal Is Boring... (And Trademarked)</Subtitle>
       <Carousel />
-      <ProductsContainer></ProductsContainer>
+      <ProductsContainer />
     </>
   );
 };

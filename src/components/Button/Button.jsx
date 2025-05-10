@@ -1,8 +1,13 @@
 import classes from "./Button.module.scss";
 
-const Button = ({ children, onSelect, isSelected }) => {
+const Button = ({ children, onSelect, isSelected, variant = "transparent" }) => {
   return (
-    <button className={isSelected ? classes.active : undefined} onClick={onSelect}>
+    <button
+      onClick={onSelect}
+      className={`${classes.button} ${classes[variant]} ${
+        isSelected ? classes.active : ""
+      }`}
+    >
       {children}
     </button>
   );

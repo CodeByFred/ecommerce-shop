@@ -17,8 +17,8 @@ function App() {
         <NavBar />
         <Overlay>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/product/:id" element={<Product />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/account" element={<Account />} />
           </Routes>

@@ -1,4 +1,6 @@
+import ProductCard from "../../components/ProductCard/ProductCard";
+
 const Product = () => {
-  return <div>Product</div>;
+  return <ProductCard />;
 };
 export default Product;

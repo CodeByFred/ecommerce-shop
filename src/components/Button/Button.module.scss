@@ -1,22 +1,28 @@
 @use "../../styles/colors";
 @use "../../styles/mixins";
 
-button {
+.button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 10px;
-  background-color: transparent;
   @include mixins.font-body(1rem, 700);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: colors.$contrast-blue;
+    color: colors.$text-main;
+  }
 }
 
-button:hover {
-  background-color: colors.$contrast-blue;
-  color: colors.$text-main;
+.transparent {
+  background-color: transparent;
+}
+
+.action {
+  background-color: colors.$accent-pink;
+  color: white;
 }
 
 .active {
   background-color: colors.$primary-yellow;
-  color: colors.$text-main;
 }

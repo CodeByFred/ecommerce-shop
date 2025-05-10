@@ -1,0 +1,48 @@
+@use "../../styles/colors";
+@use "../../styles/media-queries" as mq;
+@use "../../styles/mixins";
+
+.container {
+  width: 100%;
+  height: 100%;
+  @include mixins.flex(row, center, center);
+
+  .img_container {
+    height: 500px;
+    width: 500px;
+    img {
+      height: 500px;
+      width: 500px;
+    }
+  }
+
+  .card {
+    box-shadow: 0 8px 12px colors.$shadow-dark;
+    @include mixins.flex(column);
+    height: 750px;
+    max-height: 70%;
+    width: 600px;
+    max-width: 33%;
+    padding: 1rem 8rem;
+    .variants {
+      padding: 0.5rem 0.5rem 0.5rem 0;
+    }
+    .btn {
+      background-color: colors.$accent-pink;
+    }
+    div {
+      margin: 0.5rem 0;
+    }
+    p {
+      @include mixins.font-body(1rem, 600);
+    }
+    span {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.row {
+  width: 100%;
+  @include mixins.flex($justify: space-between, $align: center);
+}
