@@ -29,9 +29,8 @@ const ProductsContainer = () => {
       <h2>Shop By Category</h2>
       <menu>
         {tabs.map((tab) => (
-          <li>
+          <li key={tab}>
             <Button
-              key={tab}
               isSelected={selectedCategory === tab}
               onSelect={() => handleSelect(tab)}
             >

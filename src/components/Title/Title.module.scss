@@ -6,7 +6,7 @@
   @include mixins.font-heading(1.75rem);
   text-shadow: 2px 2px colors.$contrast-blue;
   word-spacing: 0.5rem;
-  margin: 1rem 0;
+  margin: 1rem 0 0.25rem 0;
 
   @include mq.tablet() {
     @include mixins.font-heading(3.5rem);

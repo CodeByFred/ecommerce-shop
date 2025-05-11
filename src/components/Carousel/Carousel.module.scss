@@ -3,22 +3,43 @@
 @use "../../styles/mixins";
 
 .carousel {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  height: 250px;
+  overflow: hidden;
+  margin: 1.5rem;
+}
+
+.track {
+  @include mixins.flex();
+  width: 100%;
+}
+
+.slide {
   @include mixins.flex(column, center, center);
-  margin: 2rem;
-  background-color: gray;
-  height: 150px;
-  width: 300px;
+  min-width: 100%;
+  flex-shrink: 0;
+}
 
-  @include mq.tablet {
-    width: 400px;
-    height: 250px;
-  }
+.image {
+  max-height: 250px;
+}
 
-  @include mq.pc {
-    width: 400px;
-    height: 250px;
-  }
+.nav {
+  @include mixins.font-body(1.5rem, 600);
+  top: 45%;
+  position: absolute;
+  background: transparent;
+  box-shadow: 0px 1px 1px 1px colors.$accent-shadow;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+.left {
+  left: 5px;
+}
 
-  // &_track {
-  // }
+.right {
+  right: 5px;
 }
