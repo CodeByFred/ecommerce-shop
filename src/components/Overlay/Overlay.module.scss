@@ -3,13 +3,15 @@
 
 .overlay {
   width: 90%;
+  min-height: 94vh;
   background-color: white;
-  @include mixins.flex(column, center, center);
+  @include mixins.flex(column, flex-start, center);
   margin: 0 0 1.5rem 0;
   border-radius: 20px;
+  padding: 1rem;
 
   @include mq.tablet() {
-    height: 90%;
+    min-height: 96vh;
     width: 95%;
   }
 

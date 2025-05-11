@@ -1,0 +1,41 @@
+@use "../../styles/colors";
+@use "../../styles/media-queries" as mq;
+@use "../../styles/mixins";
+
+.container {
+  @include mixins.flex(column, center, flex-start);
+  align-self: flex-end;
+  width: 400px;
+  max-width: 70%;
+  margin: 1rem;
+  box-shadow: 0 4px 10px colors.$accent-shadow-blue;
+
+  @include mq.tablet() {
+    align-self: center;
+  }
+
+  @include mq.pc() {
+    align-self: center;
+    width: 300px;
+  }
+
+  p {
+    @include mixins.font-body(0.85rem, 500);
+    margin: 0.5rem;
+
+    @include mq.tablet() {
+      font-size: 1rem;
+      margin: 0.5rem;
+    }
+
+    @include mq.pc() {
+      font-size: 1.25rem;
+      margin: 0.5rem;
+    }
+  }
+}
+
+.row {
+  @include mixins.flex(row, space-between, center);
+  width: 100%;
+}

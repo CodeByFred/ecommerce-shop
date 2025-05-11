@@ -1,0 +1,48 @@
+@use "../../styles/colors";
+@use "../../styles/media-queries" as mq;
+@use "../../styles/mixins";
+
+.wrapper {
+  @include mixins.flex(row, center, center);
+  width: 90%;
+  height: 150px;
+  margin: 1.25rem 0 0 0;
+  box-shadow: 0 4px 10px colors.$accent-shadow;
+
+  @include mq.tablet() {
+    width: 400px;
+    max-width: 50%;
+    padding-left: 0.5rem;
+  }
+}
+
+.image_container {
+  @include mixins.flex(column, center, center);
+  height: 100px;
+  width: 100px;
+}
+
+.image {
+  max-height: 135px;
+}
+
+.product_details {
+  width: 75%;
+  p {
+    @include mixins.font-body(0.85rem, 500);
+    margin: 0.5rem;
+
+    @include mq.tablet() {
+      font-size: 1rem;
+      margin: 0.5rem;
+    }
+
+    @include mq.pc() {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.price_quantity {
+  @include mixins.flex(row, space-between, center);
+}
