@@ -5,6 +5,8 @@ const ProductWithTitle = ({ product }) => {
   return (
     <Link to={`/product/${product.id}`} className={classes.link}>
       <div className={classes.content}>
+        {product.favourite && <span className={classes.heart}>&hearts;</span>}
+
         <div className={classes.image_container}>
           <img className={classes.image} src={product.img_url} alt={product.name} />
         </div>

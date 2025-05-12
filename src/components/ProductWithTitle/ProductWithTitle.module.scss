@@ -4,6 +4,8 @@
 
 .content {
   @include mixins.flex(column, center, center);
+  position: relative;
+
   height: 260px;
   width: 250px;
   margin: 0.5rem 1rem;
@@ -29,4 +31,12 @@
 .link {
   text-decoration: none;
   color: inherit;
+}
+
+.heart {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  color: red;
+  font-size: 1.75rem;
 }
