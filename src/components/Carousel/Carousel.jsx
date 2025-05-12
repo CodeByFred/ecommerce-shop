@@ -1,21 +1,34 @@
 import classes from "./Carousel.module.scss";
-import image1 from "../../assets/image1.jpg";
-import image2 from "../../assets/image2.jpg";
-import image3 from "../../assets/image3.jpg";
+import useQuery from "../../hooks/useQuery";
 import { useState } from "react";
+import { getFeaturedProducts } from "../../api/getProducts";
 
 const Carousel = () => {
+  const {
+    data: products,
+    isLoading,
+    isFail,
+  } = useQuery({
+    fetchFn: getFeaturedProducts,
+    dependencies: [],
+  });
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [image1, image2, image3];
-
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === products.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? products.length - 1 : prevIndex - 1
+    );
   };
+
+  if (isLoading) return <p>Loading featured products...</p>;
+  if (isFail || !products || products.length === 0) return <p>No featured products.</p>;
 
   return (
     <div className={classes.carousel}>
@@ -23,19 +36,25 @@ const Carousel = () => {
         className={classes.track}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {images.map((img, index) => (
-          <div className={classes.slide} key={index}>
-            <img className={classes.image} src={img} alt={`Slide ${index + 1}`} />
+        {products.map((product) => (
+          <div className={classes.slide} key={product.id}>
+            <img className={classes.image} src={product.img_url} alt={product.name} />
           </div>
         ))}
       </div>
-      <button onClick={handlePrev} className={`${classes.nav} ${classes.left}`}>
-        &lt;
-      </button>
-      <button onClick={handleNext} className={`${classes.nav} ${classes.right}`}>
-        &gt;
-      </button>
+
+      {products.length > 1 && (
+        <>
+          <button onClick={handlePrev} className={`${classes.nav} ${classes.left}`}>
+            &lt;
+          </button>
+          <button onClick={handleNext} className={`${classes.nav} ${classes.right}`}>
+            &gt;
+          </button>
+        </>
+      )}
     </div>
   );
 };
+
 export default Carousel;

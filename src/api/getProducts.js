@@ -24,3 +24,9 @@ export const getProductById = async (id) => {
   }
   return { id: snapshot.id, ...snapshot.data() };
 };
+
+export const getFeaturedProducts = async () => {
+  const q = query(collection(db, "products"), where("isFeatured", "==", true));
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+};
