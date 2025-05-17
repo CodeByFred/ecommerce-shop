@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 import Button from "../Button/Button";
 import classes from "./ProductCard.module.scss";
 import Subtitle from "../Subtitle/Subtitle";
+import DecrementIncrement from "../DecrementIncrement/DecrementIncrement";
 
 const ProductCard = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(0);
   const variant = product.variants[selectedVariant];
+  const { items, addItem } = useContext(CartContext);
+  const key = `${product.id}_${selectedVariant}`;
+  const itemInCart = items.find((item) => item.key === key);
 
   return (
     <div className={classes.container}>
@@ -48,7 +53,13 @@ const ProductCard = ({ product }) => {
           <p>
             <span>${variant.price}</span>
           </p>
-          <Button variant="action">Add to Cart</Button>
+          {itemInCart ? (
+            <DecrementIncrement itemKey={key} />
+          ) : (
+            <Button variant="action" onSelect={() => addItem(key)}>
+              Add to Cart
+            </Button>
+          )}
         </div>
       </div>
     </div>

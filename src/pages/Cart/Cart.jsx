@@ -8,8 +8,11 @@ const Cart = () => {
   return (
     <>
       <Title>My Shopping Cart</Title>
+      {/* The total quantity of items in cart displayed below */}
       <Subtitle>1 Item(s)</Subtitle>
+      {/* Each item BY VARIANT displayed on the page */}
       <CartItem />
+      {/* Details of the cart displayed below */}
       <CartTotal />
       <Button variant="action">Pay Now</Button>
     </>
