@@ -12,6 +12,13 @@
     background-color: colors.$contrast-blue;
     color: colors.$text-main;
   }
+
+  &:disabled {
+    color: white;
+    &:hover {
+      background-color: white;
+    }
+  }
 }
 
 .transparent {

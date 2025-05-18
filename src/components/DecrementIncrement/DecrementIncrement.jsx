@@ -20,7 +20,9 @@ const DecrementIncrement = ({ itemKey }) => {
     <div className={classes.container}>
       <Button onSelect={decrement}>-</Button>
       <p>{quantity}</p>
-      <Button onSelect={increment}>+</Button>
+      <Button onSelect={increment} disabled={item.quantity >= item.inStock}>
+        +
+      </Button>
     </div>
   );
 };

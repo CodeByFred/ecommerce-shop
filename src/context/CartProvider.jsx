@@ -9,6 +9,7 @@ const CartProvider = ({ children }) => {
       const newItem = {
         key: key,
         quantity: 1,
+        inStock: variant.quantity,
         productId: product.id,
         name: product.name,
         variant: variant.type,
