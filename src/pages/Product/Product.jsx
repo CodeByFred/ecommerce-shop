@@ -1,7 +1,7 @@
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useParams } from "react-router";
 import useQuery from "../../hooks/useQuery";
-import { getProductById } from "../../api/getProducts";
+import { getProductById } from "../../api/productService.js";
 
 const Product = () => {
   const { id } = useParams();

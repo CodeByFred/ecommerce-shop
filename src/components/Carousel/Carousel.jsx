@@ -2,7 +2,7 @@ import classes from "./Carousel.module.scss";
 import useQuery from "../../hooks/useQuery";
 import freeShippingImg from "../../assets/freeShipping.jpg";
 import { useState } from "react";
-import { getFeaturedProducts } from "../../api/getProducts";
+import { getFeaturedProducts } from "../../api/productService.js";
 
 const Carousel = () => {
   const {
@@ -22,6 +22,9 @@ const Carousel = () => {
     name: "default banner",
   };
 
+  if (isLoading) return <p>Loading featured products...</p>;
+  if (isFail || !products || products.length === 0) return <p>No featured products.</p>;
+
   const slides = [defaultImg, ...products];
 
   const handleNext = () => {
@@ -31,9 +34,6 @@ const Carousel = () => {
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
   };
-
-  if (isLoading) return <p>Loading featured products...</p>;
-  if (isFail || !products || products.length === 0) return <p>No featured products.</p>;
 
   return (
     <div className={classes.carousel}>

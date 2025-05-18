@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getProductsByCategory } from "../../api/getProducts.js";
+import { getProductsByCategory } from "../../api/productService.js";
 import useQuery from "../../hooks/useQuery";
 import Button from "../Button/Button";
 import ProductWithTitle from "../ProductWithTitle/ProductWithTitle";
