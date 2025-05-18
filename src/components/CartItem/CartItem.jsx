@@ -1,8 +1,11 @@
 import classes from "./CartItem.module.scss";
 import DecrementIncrement from "../DecrementIncrement/DecrementIncrement";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const CartItem = ({ item }) => {
-  console.log(item);
+  const { removeItem } = useContext(CartContext);
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.image_container}>
@@ -20,6 +23,9 @@ const CartItem = ({ item }) => {
           </p>
         </div>
       </div>
+      <span onClick={() => removeItem(item.key)} className={classes.delete}>
+        x
+      </span>
     </div>
   );
 };

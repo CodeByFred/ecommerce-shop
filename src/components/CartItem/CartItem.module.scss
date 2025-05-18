@@ -8,6 +8,7 @@
   height: 150px;
   margin: 1.25rem 0 0 0;
   box-shadow: 0 4px 10px colors.$accent-shadow;
+  position: relative;
 
   @include mq.tablet() {
     width: 400px;
@@ -46,4 +47,12 @@
 
 .price_quantity {
   @include mixins.flex(row, space-between, center);
+}
+
+.delete {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
 }

@@ -1,0 +1,6 @@
+@use "../../styles/mixins";
+
+.row {
+  @include mixins.flex(row, center, center);
+  gap: 1rem;
+}

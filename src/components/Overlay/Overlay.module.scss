@@ -3,6 +3,7 @@
 @use "../../styles/mixins";
 
 .overlay {
+  position: relative;
   width: 90%;
   min-height: 94vh;
   background-color: white;
