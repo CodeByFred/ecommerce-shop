@@ -17,12 +17,12 @@
   }
 
   @include mq.pc() {
-    height: 94%;
+    min-height: 94vh;
     width: 97%;
   }
 
   @include mq.uhd() {
-    height: 96%;
+    min-height: 96vh;
     width: 98%;
   }
 }

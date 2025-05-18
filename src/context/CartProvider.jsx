@@ -4,9 +4,17 @@ import { CartContext } from "./CartContext";
 const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
-  const addItem = (key) => {
+  const addItem = (key, product, variant) => {
     if (!items.some((item) => item.key === key)) {
-      const newItem = { key: key, quantity: 1 };
+      const newItem = {
+        key: key,
+        quantity: 1,
+        productId: product.id,
+        name: product.name,
+        variant: variant.type,
+        price: variant.price,
+        img_url: product.img_url,
+      };
       setItems([...items, newItem]);
     } else {
       console.log("item already in cart!");

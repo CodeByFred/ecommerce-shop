@@ -1,22 +1,22 @@
 import classes from "./CartItem.module.scss";
-import image from "../../assets/image2.jpg";
 import DecrementIncrement from "../DecrementIncrement/DecrementIncrement";
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
+  console.log(item);
   return (
     <div className={classes.wrapper}>
       <div className={classes.image_container}>
-        <img className={classes.image} src={image} alt="" />
+        <img className={classes.image} src={item.img_url} alt="" />
       </div>
       <div className={classes.product_details}>
         <p>
-          <strong>Duke Skywalker</strong>
+          <strong>{item.name}</strong>
         </p>
-        <p>Variant</p>
+        <p>{item.variant}</p>
         <div className={classes.price_quantity}>
-          <DecrementIncrement />
+          <DecrementIncrement itemKey={item.key} />
           <p>
-            <strong>$10.99</strong>
+            <strong>${(item.price * item.quantity).toFixed(2)}</strong>
           </p>
         </div>
       </div>

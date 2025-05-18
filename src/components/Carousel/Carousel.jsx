@@ -1,5 +1,6 @@
 import classes from "./Carousel.module.scss";
 import useQuery from "../../hooks/useQuery";
+// import { image } from "../../assets/freeShipping.jpg";
 import { useState } from "react";
 import { getFeaturedProducts } from "../../api/getProducts";
 

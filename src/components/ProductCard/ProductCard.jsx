@@ -8,7 +8,10 @@ import DecrementIncrement from "../DecrementIncrement/DecrementIncrement";
 const ProductCard = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(0);
   const variant = product.variants[selectedVariant];
+
   const { items, addItem } = useContext(CartContext);
+
+  // Building the key the same way the context does to check if item is in cart and to increment/decrement
   const key = `${product.id}_${selectedVariant}`;
   const itemInCart = items.find((item) => item.key === key);
 
@@ -56,7 +59,7 @@ const ProductCard = ({ product }) => {
           {itemInCart ? (
             <DecrementIncrement itemKey={key} />
           ) : (
-            <Button variant="action" onSelect={() => addItem(key)}>
+            <Button variant="action" onSelect={() => addItem(key, product, variant)}>
               Add to Cart
             </Button>
           )}

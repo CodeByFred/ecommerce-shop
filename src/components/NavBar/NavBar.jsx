@@ -1,22 +1,24 @@
 import { NavLink } from "react-router";
 import classes from "./NavBar.module.scss";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const NavBar = () => {
-  const linkStyles = ({ isActive }) =>
-    isActive ? `${classes.link} ${classes.active_link}` : classes.link;
+  const { items } = useContext(CartContext);
+  const cartQuantity = items.reduce((acc, cur) => acc + cur.quantity, 0);
 
   return (
     <nav className={classes.nav}>
       <div className={classes.home}>
-        <NavLink className={linkStyles} to="/">
+        <NavLink className={classes.link} to="/">
           Home
         </NavLink>
       </div>
       <div className={classes.links}>
-        <NavLink className={linkStyles} to="/cart">
-          Cart
+        <NavLink className={classes.link} to="/cart">
+          Cart - {cartQuantity} item(s)
         </NavLink>
-        <NavLink className={linkStyles} to="/account">
+        <NavLink className={classes.link} to="/account">
           Account
         </NavLink>
       </div>

@@ -12,7 +12,8 @@ main {
   }
 
   @include mq.pc {
-    height: 100vh;
+    min-height: 100vh;
+    overflow-y: hidden;
     @include mixins.flex(column, center, center);
   }
 }
