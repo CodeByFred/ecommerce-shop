@@ -4,6 +4,7 @@ import useQuery from "../../hooks/useQuery";
 import Button from "../Button/Button";
 import ProductWithTitle from "../ProductWithTitle/ProductWithTitle";
 import "./ProductsContainer.module.scss";
+import { updateFavourite } from "../../api/productService";
 
 const ProductsContainer = () => {
   const [selectedCategory, setSelectedCategory] = useState("Books");
@@ -13,6 +14,7 @@ const ProductsContainer = () => {
   }
 
   const {
+    reset,
     data: products,
     isLoading,
     isFail,
@@ -44,7 +46,14 @@ const ProductsContainer = () => {
         {isFail && <p>Something went wrong.</p>}
         {!isLoading && products?.length === 0 && <p>No products found.</p>}
         {products?.map((product) => (
-          <ProductWithTitle key={product.id} product={product} />
+          <ProductWithTitle
+            key={product.id}
+            product={product}
+            onSelect={() => {
+              updateFavourite(product.id, product.favourite);
+              reset();
+            }}
+          />
         ))}
       </div>
     </section>

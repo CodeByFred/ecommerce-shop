@@ -11,7 +11,6 @@ const ProductCard = ({ product }) => {
 
   const { items, addItem } = useContext(CartContext);
 
-  // Building the key the same way the context does to check if item is in cart and to increment/decrement
   const key = `${product.id}_${selectedVariant}`;
   const itemInCart = items.find((item) => item.key === key);
 

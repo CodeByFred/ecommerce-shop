@@ -33,10 +33,18 @@
   color: inherit;
 }
 
-.heart {
+.outline {
   position: absolute;
   top: 0;
   right: 0.5rem;
-  color: red;
+  color: white;
+  text-shadow: -1px -1px 0 colors.$shadow-dark, 1px -1px 0 colors.$shadow-dark,
+    -1px 1px 0 colors.$shadow-dark, 1px 1px 0 colors.$shadow-dark;
   font-size: 1.75rem;
+  cursor: grab;
+}
+
+.heart {
+  color: red;
+  text-shadow: none;
 }

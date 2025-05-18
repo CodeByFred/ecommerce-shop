@@ -1,20 +1,26 @@
 import classes from "./ProductWithTitle.module.scss";
 import { Link } from "react-router";
 
-const ProductWithTitle = ({ product }) => {
+const ProductWithTitle = ({ product, onSelect }) => {
   return (
-    <Link to={`/product/${product.id}`} className={classes.link}>
-      <div className={classes.content}>
-        {product.favourite && <span className={classes.heart}>&hearts;</span>}
+    <div className={classes.content}>
+      <span
+        className={`${classes.outline} ${product.favourite ? classes.heart : ""} `}
+        onClick={onSelect}
+      >
+        &hearts;
+      </span>
 
+      <Link to={`/product/${product.id}`} className={classes.link}>
         <div className={classes.image_container}>
           <img className={classes.image} src={product.img_url} alt={product.name} />
         </div>
+
         <div className={classes.title}>
           <p>{product.name}</p>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 export default ProductWithTitle;
