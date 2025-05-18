@@ -8,6 +8,7 @@
   width: 400px;
   max-width: 70%;
   margin: 1rem;
+  background-color: white;
   box-shadow: 0 4px 10px colors.$accent-shadow-blue;
 
   @include mq.tablet() {

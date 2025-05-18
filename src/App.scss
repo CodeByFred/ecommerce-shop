@@ -3,7 +3,7 @@
 @use "./styles/mixins";
 
 main {
-  background-color: colors.$neutral-beige;
+  background-color: colors.$primary-yellow;
   @include mixins.flex(column, center, center);
   height: 100%;
 

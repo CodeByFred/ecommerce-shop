@@ -5,7 +5,7 @@
 .content {
   @include mixins.flex(column, center, center);
   position: relative;
-
+  background-color: white;
   height: 260px;
   width: 250px;
   margin: 0.5rem 1rem;

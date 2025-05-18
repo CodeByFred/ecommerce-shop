@@ -20,6 +20,7 @@
   @include mixins.flex(column, center, center);
   min-width: 100%;
   flex-shrink: 0;
+  background-color: white;
 }
 
 .image {

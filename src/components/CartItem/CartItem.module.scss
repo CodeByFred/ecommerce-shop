@@ -9,6 +9,7 @@
   margin: 1.25rem 0 0 0;
   box-shadow: 0 4px 10px colors.$accent-shadow;
   position: relative;
+  background-color: white;
 
   @include mq.tablet() {
     width: 400px;
@@ -54,5 +55,5 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 }
