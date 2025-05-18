@@ -1,6 +1,6 @@
 import classes from "./Carousel.module.scss";
 import useQuery from "../../hooks/useQuery";
-// import { image } from "../../assets/freeShipping.jpg";
+import freeShippingImg from "../../assets/freeShipping.jpg";
 import { useState } from "react";
 import { getFeaturedProducts } from "../../api/getProducts";
 
@@ -16,16 +16,20 @@ const Carousel = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const defaultImg = {
+    id: "promo",
+    img_url: freeShippingImg,
+    name: "default banner",
+  };
+
+  const slides = [defaultImg, ...products];
+
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === products.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? products.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
   };
 
   if (isLoading) return <p>Loading featured products...</p>;
@@ -37,14 +41,14 @@ const Carousel = () => {
         className={classes.track}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {products.map((product) => (
+        {slides.map((product) => (
           <div className={classes.slide} key={product.id}>
             <img className={classes.image} src={product.img_url} alt={product.name} />
           </div>
         ))}
       </div>
 
-      {products.length > 1 && (
+      {slides.length > 1 && (
         <>
           <button onClick={handlePrev} className={`${classes.nav} ${classes.left}`}>
             &lt;
