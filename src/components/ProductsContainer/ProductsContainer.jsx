@@ -3,7 +3,7 @@ import { getProductsByCategory } from "../../api/productService.js";
 import useQuery from "../../hooks/useQuery";
 import Button from "../Button/Button";
 import ProductWithTitle from "../ProductWithTitle/ProductWithTitle";
-import "./ProductsContainer.module.scss";
+import classes from "./ProductsContainer.module.scss";
 import { updateFavourite } from "../../api/productService";
 
 const ProductsContainer = () => {
@@ -27,9 +27,9 @@ const ProductsContainer = () => {
   const tabs = ["Books", "Toys", "Snacks", "Clothing", "Gift Cards"];
 
   return (
-    <section>
+    <section className={classes.section}>
       <h2>Shop By Category</h2>
-      <menu>
+      <menu className={classes.menu}>
         {tabs.map((tab) => (
           <li key={tab}>
             <Button
@@ -41,7 +41,7 @@ const ProductsContainer = () => {
           </li>
         ))}
       </menu>
-      <div>
+      <div className={classes.container}>
         {isLoading && <p>Loading...</p>}
         {isFail && <p>Something went wrong.</p>}
         {!isLoading && products?.length === 0 && <p>No products found.</p>}

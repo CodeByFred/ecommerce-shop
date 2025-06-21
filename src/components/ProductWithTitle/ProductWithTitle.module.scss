@@ -6,10 +6,14 @@
   @include mixins.flex(column, center, center);
   position: relative;
   background-color: white;
-  height: 260px;
+  height: 300px;
   width: 250px;
   margin: 0.5rem 1rem;
   box-shadow: 0 4px 10px colors.$accent-shadow;
+}
+
+.image_container {
+  @include mixins.flex(column, center, center);
 }
 
 .image {
@@ -29,6 +33,7 @@
 }
 
 .link {
+  @include mixins.flex(column, center, center);
   text-decoration: none;
   color: inherit;
 }
