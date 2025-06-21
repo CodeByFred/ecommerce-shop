@@ -10,7 +10,7 @@ import CartProvider from "./context/CartProvider";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <CartProvider>
         <main>
           <NavBar />
