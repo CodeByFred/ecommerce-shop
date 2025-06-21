@@ -34,6 +34,7 @@ const ProductCard = ({ product }) => {
             {product.variants.map((v, index) => (
               <Button
                 key={v.type}
+                // need to delete changed to "transparent"
                 variant="outline"
                 isSelected={selectedVariant === index}
                 onSelect={() => setSelectedVariant(index)}

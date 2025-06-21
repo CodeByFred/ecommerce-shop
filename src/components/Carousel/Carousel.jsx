@@ -3,6 +3,7 @@ import useQuery from "../../hooks/useQuery";
 import freeShippingImg from "../../assets/freeShipping.jpg";
 import { useState } from "react";
 import { getFeaturedProducts } from "../../api/productService.js";
+import { Link } from "react-router";
 
 const Carousel = () => {
   const {
@@ -17,7 +18,7 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const defaultImg = {
-    id: "promo",
+    id: "",
     img_url: freeShippingImg,
     name: "default banner",
   };
@@ -43,7 +44,9 @@ const Carousel = () => {
       >
         {slides.map((product) => (
           <div className={classes.slide} key={product.id}>
-            <img className={classes.image} src={product.img_url} alt={product.name} />
+            <Link to={`/product/${product.id}`}>
+              <img className={classes.image} src={product.img_url} alt={product.name} />
+            </Link>
           </div>
         ))}
       </div>
